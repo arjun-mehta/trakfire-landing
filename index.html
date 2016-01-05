@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Trakfire</title>
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel='shortcut icon' href='/assets/img/trakfirefavicon.ico' type='image/x-icon'/ >
+    <link href="//cloud.webtype.com/css/84b460fa-e047-42ed-a876-84cb3e36e3ec.css" rel="stylesheet" type="text/css" />
+    <link href="//cloud.webtype.com/css/0c064cb3-b254-40dd-b29f-b3e30a3e4c4b.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/tf-styles.css">
+   <!-- <script src="js/jquery-1.11.0.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <!--<body class="tf-body">
+    <section id="trakfireapp"></section>
+    <script src="bundle.js"></script>
+  </body>-->
+  <body>
+    <div class="body-bg"></div>
+    <img class="logo" src="assets/img/logo.svg" alt="Trakfire" width="560">
+
+    <div class="signup">
+      <span class="headline">Are you a tastemaker?</span>
+      <a href="#" class="button" data-toggle="modal" data-target="#myModal">Request invite</a>
+    </div>
+
+    <!-- Request Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="tf-centered">
+              <p> 
+                <h2 className="tf-centered tf-uppercase">Request Invite</h2>
+              </p>
+              <p className="tf-centered">
+                Wanna become an influencer? 
+                <br> 
+                Request an invite and become part of the community. 
+              </p>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="First Last" />
+              </div>
+              <div class="col-xs-6">
+                <label for="handle">Twitter Handle</label>
+                <input type="text" id="handle" placeholder="@handle" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="slimeszn@trakfire.com" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <label for="artistField">Five favorite emerging artists</label>
+                <textarea  id="artistField" placeholder="pure fire artists here" ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <label for="statementField">Why do you deserve an invite?</label>
+                <textarea id="statementField" placeholder="why you're pure fire here" ></textarea>
+              </div>
+            </div>
+            <div clas="tf-centered">
+              <a href="#" id="submitApplication" class="btn tf-btn-rd btn-block"> Finish Account </a>
+            </div>
+            <!--<a href="#" className="btn btn-link tf-btn-link btn-block"> Already have an account? </a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+
+    var name =        $('#name').val();
+    var description = $('#statementField').val();
+    var artists =     $('#artistField').val();
+    var email =       $('#email').val();
+    var handle =      $('#handle').val();
+    var subject = "New Trakfire Application";
+    var message = " name : " + name + " description : " + description + " artists : " + artists + " email : " + email + " Twitter : " + handle + ".";
+
+    $.ajax({
+      url : 'send-mail.php',
+      data : { name:name, email:email, artists:artists, handle:handle, subject:subject, message:message }
+      type : 'POST', 
+      success : function() { console.log("yo done"); }
+    });
+
+  </script>
+</html>
