@@ -36,9 +36,13 @@ function validateEmail($email) {
 	  return false;
 }
 
-if((strlen($frm_name) < 1 ) || (strlen($frm_email) < 1 ) || (strlen($frm_message) < 1 ) || validateEmail($frm_email) == FALSE ) {
+if((strlen($frm_name) < 1 ) || (strlen($frm_email) < 1 ) || (strlen($frm_message) < 1 )) {
 
 	echo($error_message);
+
+} else if(validateEmail($frm_email) == FALSE){
+
+	echo("could not validate email address");
 
 } else {
 
