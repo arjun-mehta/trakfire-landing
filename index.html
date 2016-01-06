@@ -94,7 +94,9 @@
       url : 'send-mail.php',
       data : { name:name, email:email, artists:artists, handle:handle, subject:subject, message:message },
       method : 'POST', 
-      success : function() { console.log("sent that things"); }
+      success : function(data) { 
+        console.log(data); 
+      }
     });
   });
   </script>
