@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Trakfire</title>
     <link rel="stylesheet" href="css/landing.css">
-    <link rel='shortcut icon' href='/assets/img/trakfirefavicon.ico' type='image/x-icon'/ >
+    <link rel='shortcut icon' href='assets/img/trakfirefavicon.ico' type='image/x-icon'/ >
     <link href="//cloud.webtype.com/css/84b460fa-e047-42ed-a876-84cb3e36e3ec.css" rel="stylesheet" type="text/css" />
     <link href="//cloud.webtype.com/css/0c064cb3-b254-40dd-b29f-b3e30a3e4c4b.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -80,6 +80,7 @@
   </body>
   <script>
 
+  $("#submitApplication").click(function(){
     var name =        $('#name').val();
     var description = $('#statementField').val();
     var artists =     $('#artistField').val();
@@ -87,13 +88,14 @@
     var handle =      $('#handle').val();
     var subject = "New Trakfire Application";
     var message = " name : " + name + " description : " + description + " artists : " + artists + " email : " + email + " Twitter : " + handle + ".";
-
+    //console.log(message);
+    if(name == '' || description == '' || artists == '' || email == '' || handle == '') { console.log("fucked up"); return; }
     $.ajax({
       url : 'send-mail.php',
-      data : { name:name, email:email, artists:artists, handle:handle, subject:subject, message:message }
-      type : 'POST', 
-      success : function() { console.log("yo done"); }
+      data : { name:name, email:email, artists:artists, handle:handle, subject:subject, message:message },
+      method : 'POST', 
+      success : function() { console.log("sent that things"); }
     });
-
+  });
   </script>
 </html>
