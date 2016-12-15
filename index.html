@@ -22,8 +22,8 @@
     <img class="logo" src="assets/img/logo.svg" alt="Trakfire" width="560">
 
     <div class="signup">
-      <span class="headline">Are you a tastemaker?</span>
-      <a href="#" class="button" data-toggle="modal" data-target="#myModal">Request invite</a>
+      <span class="headline">Big tings in store for 2017.<br> Stay tuned. </span>
+      <!--<a href="#" class="button" data-toggle="modal" data-target="#myModal">Request invite</a>-->
     </div>
 
     <!-- Request Modal -->
@@ -32,13 +32,13 @@
         <div class="modal-content">
           <div class="modal-body">
             <div class="tf-centered">
-              <p> 
+              <p>
                 <h2 className="tf-centered tf-uppercase">Request Invite</h2>
               </p>
               <p className="tf-centered">
-                Wanna become an influencer? 
-                <br> 
-                Request an invite and become part of the community. 
+                Wanna become an influencer?
+                <br>
+                Request an invite and become part of the community.
               </p>
             </div>
             <div class="row">
@@ -93,9 +93,9 @@
     $.ajax({
       url : 'send-mail.php',
       data : { name:name, email:email, artists:artists, handle:handle, subject:subject, message:message },
-      method : 'POST', 
-      success : function(data) { 
-        console.log(data); 
+      method : 'POST',
+      success : function(data) {
+        console.log(data);
       }
     });
   });
